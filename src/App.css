@@ -1,0 +1,55 @@
+@import "~fluid-player/src/css/fluidplayer.css";
+
+/* Add a black background color to the top navigation */
+@font-face {
+    font-family: "BRoya";
+    src: url("fonts/BRoya/BRoya.eot");
+    src: url("fonts/BRoya/BRoya.woff") format("woff")
+    /*url("CustomFont.otf") format("opentype"),*/
+    /*url("CustomFont.svg#filename") format("svg");*/
+}
+@font-face {
+    font-family: "BKoodakBold";
+    src: url("fonts/bkoodak/BKoodakBold.eot");
+    src: url("fonts/bkoodak/BKoodakBold.woff") format("woff")
+    /*url("CustomFont.otf") format("opentype"),*/
+    /*url("CustomFont.svg#filename") format("svg");*/
+}
+@font-face {
+    font-family: 'BYekan';
+    src: url('fonts/BYekan/BYekan.eot') format('eot'),
+    url('fonts/BYekan/BYekan.ttf') format('truetype'),
+    url('fonts/BYekan/BYekan.woff') format('woff');
+}
+@font-face {
+    font-family: 'IranianSans';
+    src: url('fonts/IRAN_SANS/IranianSans.eot') format('eot'),
+    url('fonts/IRAN_SANS/IranianSans.ttf') format('truetype'),
+    url('fonts/IRAN_SANS/IranianSans.woff') format('woff');
+}
+@font-face {
+    font-family: 'IranSansWeb';
+    src: url('fonts/IRAN_SANS/IRANSans-web.eot') format('eot'),
+    url('fonts/IRAN_SANS/IRANSans-web.ttf') format('truetype'),
+    url('fonts/IRAN_SANS/IRANSans-web.woff') format('woff');
+}
+@font-face {
+    font-family: 'IranSansWebLight';
+    src: url('fonts/IRAN_SANS/IRANSans-Light-web.eot') format('eot'),
+    url('fonts/IRAN_SANS/IRANSans-Light-web.ttf') format('truetype'),
+    url('fonts/IRAN_SANS/IRANSans-Light-web.woff') format('woff');
+}
+@font-face {
+    font-family: 'IranSansWebUltraLight';
+    src: url('fonts/IRAN_SANS/IRANSans-UltraLight-web.eot') format('eot'),
+    url('fonts/IRAN_SANS/IRANSans-UltraLight-web.ttf') format('truetype'),
+    url('fonts/IRAN_SANS/IRANSans-UltraLight-web.woff') format('woff');
+}
+body {
+    margin: 0;
+    /*font-family:"B Nazanin", Arial, Helvetica, sans-serif;*/
+    font-family:"IranSansWebUltraLight", sans-serif;
+    /*font-weight: 50 !important;*/
+    /*font-family:"BKoodakBold", Arial, Helvetica, sans-serif;*/
+    direction: rtl;
+}
