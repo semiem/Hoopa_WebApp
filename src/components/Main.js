@@ -1,20 +1,20 @@
 import React from 'react';
 import {NavLink, Switch, Route} from 'react-router-dom';
-import {NotFoundPage} from './NotFoundPage';
-import {HeaderArea, InternetConnectionStatus, PreLoader} from "../Utils";
+import {ContentMain} from "./PageMain/ContentMain";
+import {FooterNav, HeaderArea, InternetConnectionStatus, NotFoundPage} from "./Defaults";
 
 const Main = () => {
 
     return (
         <div className="">
-            {/*<HeaderArea/>*/}
-            <PreLoader/>
+            <HeaderArea/>
+            {/*<PreLoader/>*/}
             <InternetConnectionStatus/>
             <Switch>
-                <Route key="HomePage" exact path='/' component={HomePage}/>
+                <Route key="HomePage" exact path='/' component={ContentMain}/>
                 <Route key="NotFound" component={NotFoundPage}/>
             </Switch>
-            {/*<FooterNav/>*/}
+            <FooterNav/>
         </div>
     );
 }
