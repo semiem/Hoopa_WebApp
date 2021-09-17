@@ -49,8 +49,9 @@ export class MessageItem extends React.Component {
     }
 
     deleteItem(e) {
+        // ToDo: Call Delete API!
         e.preventDefault();
-        var that = $(this);
+        let that = $(this);
         that.parent().parent().fadeOut('500');
     }
 

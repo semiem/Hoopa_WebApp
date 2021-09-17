@@ -8,8 +8,6 @@ class Login extends React.Component {
         this.username = React.createRef();
         this.password = React.createRef();
         this.loginBtn = React.createRef();
-        // this.doLogin = this.doLogin.bind(this);
-
     }
 
 

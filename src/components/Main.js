@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, Switch, Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {ContentMain} from "./PageMain/ContentMain";
 import {FooterNav, HeaderArea, InternetConnectionStatus, NotFoundPage} from "./Defaults";
 

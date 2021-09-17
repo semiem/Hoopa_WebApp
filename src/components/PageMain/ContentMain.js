@@ -1,10 +1,10 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import {MessageItem} from "./MessageItem";
-import {addDataIntoCache, generateRequest, getCacheData, isLogin} from "../../Utils/Helper";
+import {addDataIntoCache, generateRequest, isLogin} from "../../Utils/Helper";
 import './ContentMain.css'
+import {BadgeFromFilter} from "./Badge-FromFilter";
 
 export class ContentMain extends React.Component {
     constructor(props) {
@@ -18,16 +18,10 @@ export class ContentMain extends React.Component {
 
 
     componentWillReceiveProps(nextProps) {
-        // $('#preloaderContainer').show();
-        // this.state.isLoaded = false;
-        // this.getStructureItems();
-    }
-
-    componentDidUpdate(prevProps) {
-
-        // console.log("componentDidUpdate");
-
-        // $('.gallery').flickity({
+        // this.props = nextProps;
+        // ToDo: Add Type Filter To Items! ( Type Data In Api Not Found! )
+        // let newItems = this.mItems.filter(function (ele) {
+        //     return ele.typeId != clickedBadge.typeId;
         // });
     }
 
@@ -68,16 +62,17 @@ export class ContentMain extends React.Component {
         ) {
             return <div>در حال دریافت اطلاعات...</div>;
         } else {
+            let filters = [{title: "All"},{title: "From Hoopa"},{title: "From users"},{title: "Archived"}]
             return (
                 <div className="container-lg">
                     <div className="scrollmenu mb-3">
-                        <span className="badge rounded-pill bg-light text-dark" style={{fontSize: 'larger'}}>All</span>
-                        <span className="badge rounded-pill bg-light text-dark"
-                              style={{fontSize: 'larger'}}>From Hoopa</span>
-                        <span className="badge rounded-pill bg-light text-dark"
-                              style={{fontSize: 'larger'}}>From users</span>
-                        <span className="badge rounded-pill bg-light text-dark"
-                              style={{fontSize: 'larger'}}>Archived</span>
+                        {
+                            filters.map((filter) => {
+                                return (
+                                    <BadgeFromFilter title={filter.title}/>
+                                )
+                            })
+                        }
                     </div>
                     <NavLink to='/' className="float-start">
                         <img
