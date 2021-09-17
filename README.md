@@ -7,6 +7,9 @@ To get the frontend running locally:
 - `npm install` to install all req'd dependencies
 - `npm start` to start the local server (this project bootstrapped with create-react-app)
 
+When you’re ready to deploy to production, create a minified bundle with `npm run build`.
+
+
 ### Screenshots
 #### Login Page
 ![LoginPage](https://s18.picofile.com/file/8440888868/LoginPage.png "LoginPage")
