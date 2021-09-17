@@ -1,15 +1,16 @@
 import React from "react";
 import './MessageItem.css'
+import {addDataIntoCache, generateRequest, isLogin} from "../../Utils/Helper";
 
 export class MessageItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             error: null,
-            isLoaded: false
+            isLoaded: false,
         };
+        this.myRef = React.createRef();
 
-        this.mainSlider = null;
     }
 
 
@@ -48,11 +49,18 @@ export class MessageItem extends React.Component {
 
     }
 
-    deleteItem(e) {
-        // ToDo: Call Delete API!
-        e.preventDefault();
-        let that = $(this);
-        that.parent().parent().fadeOut('500');
+    deleteItem(e, userId) {
+        generateRequest("users/" + userId, 'DELETE', {})
+            .then(
+                (messagesResult) => {
+                    console.log(this.myRef.current.className)
+                    this.myRef.current.className = "item fadeOut";
+                    this.myRef.current.innerHTML = "";
+                }
+            );
+        // e.preventDefault();
+        // let that = $(this);
+        // that.parent().parent().fadeOut('500');
     }
 
     render() {
@@ -66,14 +74,14 @@ export class MessageItem extends React.Component {
             return <div>در حال دریافت اطلاعات...</div>;
         } else {
             return (
-                <div className="item" >
+                <div ref={this.myRef} className='item fadeIn'>
                     <a href="#" className="item-swipe">
                         <img src={item.avatar} className="rounded-circle float-end" style={{width: "50px"}}/>
                         <p className="fs-6 fw-bold m-0">{item.first_name + ' ' + item.last_name}</p>
                         <p className="fs-6 ">{item.email}</p>
                     </a>
                     <div className="item-back">
-                        <button onClick={(e) => this.deleteItem(e)}
+                        <button onClick={(e) => this.deleteItem(e, item.id)}
                                 className="action first btn-delete" type="button">
                             {/*<img src="/img/icons/trash-alt.png"/>*/}
                             <img

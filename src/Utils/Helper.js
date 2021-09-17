@@ -30,7 +30,8 @@ export function generateRequest(requestUrl, requestMethod, bodyData) {
     let userToken = sessionStorage.getItem('token') == null ? "" : sessionStorage.getItem('token');
 
     let fetchT = null;
-    if (requestMethod == "GET" || requestMethod == "get")
+    if (requestMethod == "GET" || requestMethod == "get"
+        || requestMethod == "DELETE" || requestMethod == "delete")
         fetchT = fetch(fullUrl, {
             method: requestMethod,
             headers: {
@@ -48,9 +49,13 @@ export function generateRequest(requestUrl, requestMethod, bodyData) {
             body: JSON.stringify(bodyData)
         });
 
+
     return fetchT.then(
         (response) => {
             if (response.ok) {
+                if (requestMethod == "DELETE" || requestMethod == "delete")
+                    return null;
+                else
                 return response.json();
             } else {
                 throw new Error('Something went wrong');
