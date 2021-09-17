@@ -3,7 +3,6 @@ import {NavLink} from "react-router-dom";
 
 let deferredPrompt;
 const HeaderArea = () => {
-    let temp = null;
     const [installable, setInstallable] = useState(false);
 
     useEffect(() => {
@@ -18,7 +17,7 @@ const HeaderArea = () => {
 
         window.addEventListener('appinstalled', () => {
             // Log install to analytics
-            console.log('INSTALL: Success');
+            // console.log('INSTALL: Success');
         });
     }, []);
 
@@ -30,9 +29,9 @@ const HeaderArea = () => {
         // Wait for the user to respond to the prompt
         deferredPrompt.userChoice.then((choiceResult) => {
             if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
+                // console.log('User accepted the install prompt');
             } else {
-                console.log('User dismissed the install prompt');
+                // console.log('User dismissed the install prompt');
             }
         });
     };
@@ -65,11 +64,6 @@ const HeaderArea = () => {
                         </NavLink>
                     </div>
 
-                    {/*<div className="navbar--toggler" id="affanNavbarToggler">*/}
-                    {/*    <span className="d-block"></span>*/}
-                    {/*    <span className="d-block"></span>*/}
-                    {/*    <span className="d-block"></span>*/}
-                    {/*</div>*/}
 
                     <div className="logo-wrapper">
                         <img src="/img/icons/hoopa_s.png" alt=""
@@ -81,12 +75,13 @@ const HeaderArea = () => {
 
 
                     {installable &&
-                        <button className="btn btn-creative btn-danger" onClick={handleInstallClick}>
-                            نصب اپلیکیشن
-                        </button>
+                    <button className="btn btn-creative" onClick={handleInstallClick}
+                            style={{backgroundColor: "#FFB21A"}}>
+                        نصب اپلیکیشن
+                    </button>
                     }
                     {!installable &&
-                        <div></div>
+                    <div></div>
                     }
                     <div></div>
                     {/*<NavLink to={""}>*/}

@@ -7,10 +7,10 @@
         offlineText = "اتصال به اینترنت قطع شده است!";
 
     if (window.navigator.onLine) {
-        console.log("ONLINE")
+        // console.log("ONLINE")
         internetStatus.css("display", "none").text(onlineText).addClass("internet-is-back").removeClass("internet-is-lost");
     } else {
-        console.log("OFFLINE")
+        // console.log("OFFLINE")
         internetStatus.css("display", "block").text(offlineText).addClass("internet-is-lost").removeClass("internet-is-back");
     }
 

@@ -3,8 +3,9 @@ import {NavLink} from "react-router-dom";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import {MessageItem} from "./MessageItem";
-import {generateRequest} from "../../Utils/Helper";
+import {addDataIntoCache, generateRequest, getCacheData, isLogin} from "../../Utils/Helper";
 import './ContentMain.css'
+
 export class ContentMain extends React.Component {
     constructor(props) {
         super(props);
@@ -35,15 +36,11 @@ export class ContentMain extends React.Component {
         generateRequest("users", 'GET', {})
             .then(
                 (messagesResult) => {
+                    if (isLogin())
+                        addDataIntoCache("RequestCaches", "users", messagesResult);
                     this.setState({
                         mItems: messagesResult,
                         isLoaded: true
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
                     });
                 }
             );
@@ -71,14 +68,16 @@ export class ContentMain extends React.Component {
         ) {
             return <div>در حال دریافت اطلاعات...</div>;
         } else {
-
             return (
                 <div className="container-lg">
                     <div className="scrollmenu mb-3">
                         <span className="badge rounded-pill bg-light text-dark" style={{fontSize: 'larger'}}>All</span>
-                        <span className="badge rounded-pill bg-light text-dark" style={{fontSize: 'larger'}}>From Hoopa</span>
-                        <span className="badge rounded-pill bg-light text-dark" style={{fontSize: 'larger'}}>From users</span>
-                        <span className="badge rounded-pill bg-light text-dark" style={{fontSize: 'larger'}}>Archived</span>
+                        <span className="badge rounded-pill bg-light text-dark"
+                              style={{fontSize: 'larger'}}>From Hoopa</span>
+                        <span className="badge rounded-pill bg-light text-dark"
+                              style={{fontSize: 'larger'}}>From users</span>
+                        <span className="badge rounded-pill bg-light text-dark"
+                              style={{fontSize: 'larger'}}>Archived</span>
                     </div>
                     <NavLink to='/' className="float-start">
                         <img

@@ -9,7 +9,7 @@ import Login from "./components/Login";
 class App extends Component {
 
     render() {
-        console.log(isLogin())
+        // console.log(isLogin())
         if (isLogin())
             return (
                 <Main/>
